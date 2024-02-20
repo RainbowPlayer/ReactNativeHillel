@@ -1,0 +1,16 @@
+// {
+//     "mockItemData": 
+//     [   
+//         {
+//         "title": "Pizza 1",
+//         "isNew": true,
+//         "image": "https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg",
+//         "price": {
+//         "newPrice": "$10.99",
+//         "oldPrice": "$14.99",
+//         },
+//         "description": "Long title long title lo...",
+//         }
+        
+//     ],
+// };
