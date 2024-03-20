@@ -6,8 +6,8 @@ export default function App() {
  
   return (
 
-    //<SwiperComponent />
-    <PizzaList />
+    <SwiperComponent />
+    //<PizzaList />
 
   );
 }

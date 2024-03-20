@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { View, FlatList, Image, StyleSheet, Dimensions,SafeAreaView } from 'react-native';
+import { useState, useEffect, useRef } from 'react';
+import { View, FlatList, Image, StyleSheet, Dimensions, SafeAreaView } from 'react-native';
 import Pizza1 from '../../../../assets/Pizza1.jpg';
 import Pizza2 from '../../../../assets/Pizza2.jpg';
 import Pizza3 from '../../../../assets/Pizza3.jpg';
@@ -14,12 +14,13 @@ const imageData = [
 
 const SwiperComponent = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const flatListRef = useRef();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === imageData.length - 1 ? 0 : prevIndex + 1
-      );
+      const nextIndex = currentIndex === imageData.length - 1 ? 0 : currentIndex + 1;
+      setCurrentIndex(nextIndex);
+      flatListRef.current?.scrollToIndex({ animated: true, index: nextIndex });
     }, 5000);
 
     return () => clearTimeout(timer);
@@ -29,11 +30,12 @@ const SwiperComponent = () => {
     <View style={styles.imageContainer}>
       <Image source={item.imageUrl} style={styles.image} />
     </View>
-  );  
+  );
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
+        ref={flatListRef}
         data={imageData}
         renderItem={renderItem}
         horizontal
