@@ -77,5 +77,6 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     padding: 10,
-  }
+  },
+  
 });
