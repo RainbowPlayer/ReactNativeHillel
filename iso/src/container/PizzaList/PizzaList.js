@@ -33,10 +33,8 @@ const PizzaList = () => {
     setFavoritePizzas(currentFavorites => {
       const isAlreadyFavorite = currentFavorites.some(fav => fav.title === pizza.title);
       if (isAlreadyFavorite) {
-        // Якщо піца вже є у списку улюблених, видаляємо її зі списку
         return currentFavorites.filter(fav => fav.title !== pizza.title);
       } else {
-        // Якщо піци немає у списку, додаємо її
         return [...currentFavorites, pizza];
       }
     });
